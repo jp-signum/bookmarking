@@ -23,7 +23,7 @@ model transcript_question_answer {
 
 model BookmarkFolder {
   id        Int       @id @default(autoincrement())
-  name      String
+  name      String    @unique //forcing name to be unique to flesh out duplicate folder save bug
   createdAt DateTime  @default(now())
   bookmarks Bookmark[]
 }
@@ -31,8 +31,8 @@ model BookmarkFolder {
 model Bookmark {
   id          Int       @id @default(autoincrement())
   folderId    Int
-  transcriptId Int?      // Optional
-  quoteId      Int?      // Optional
+  transcriptId Int      
+  quoteId      Int     
   createdAt   DateTime   @default(now())
 
   folder BookmarkFolder @relation(fields: [folderId], references: [id], onDelete: Cascade)

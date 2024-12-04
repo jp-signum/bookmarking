@@ -4,7 +4,7 @@ export interface Transcript {
 }
 
 export interface TranscriptQA {
-  id: string;
+  id: number;
   transcript_id: string;
   question: string;
   answer: string;
