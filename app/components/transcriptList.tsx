@@ -55,8 +55,17 @@ const TranscriptList: React.FC<TranscriptListProps> = ({
         name: folderName,
       });
       const newFolder = response.data;
-      setFolders((prevFolders) => [...prevFolders, newFolder]);
-      return newFolder.id; 
+
+      // Avoid adding duplicates to the folders list
+      setFolders((prevFolders) => {
+        const isDuplicate = prevFolders.some(
+          (folder) => folder.id === newFolder.id
+        );
+        return isDuplicate ? prevFolders : [...prevFolders, newFolder];
+      });
+
+      setNewFolderName(""); 
+      return newFolder.id;
     } catch (error) {
       console.error("Error creating folder:", error);
       alert("Failed to create folder");

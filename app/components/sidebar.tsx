@@ -17,6 +17,17 @@ const Sidebar: React.FC<SidebarProps> = ({ transcripts }) => {
       position="sticky"
       top={0}
     >
+      <VStack align="stretch" width="full" spacing={4} mb={6}>
+        <Link
+          href="/bookmarks"
+          p={2}
+          borderRadius="md"
+          fontWeight="bold"
+          _hover={{ bg: "teal.100" }}
+        >
+          View All Bookmarks
+        </Link>
+      </VStack>
       <VStack align="stretch" width="full" spacing={2}>
         {transcripts?.map(({ transcript }) => (
           <Link

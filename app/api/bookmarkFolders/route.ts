@@ -1,10 +1,10 @@
-// return a list of all bookmark folders 
+// bookmark folders handler POST/GET
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 
 const prisma = new PrismaClient();
 
-// Handle GET requests to fetch all bookmark folders
+// handle GET requests to fetch all bookmark folders
 export async function GET() {
   try {
     const folders = await prisma.bookmarkFolder.findMany({
@@ -24,7 +24,7 @@ export async function GET() {
   }
 }
 
-// Handle POST requests to create a new bookmark folder
+// handle POST requests to create a new bookmark folder
 export async function POST(req: Request) {
   try {
     const { name } = await req.json();

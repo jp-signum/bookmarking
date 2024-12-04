@@ -11,6 +11,7 @@ model transcript {
   id                         Int                          @id @default(autoincrement())
   interview_name             String?
   transcript_question_answer transcript_question_answer[]
+  bookmarks bookmark[]
 }
 
 model transcript_question_answer {
@@ -19,21 +20,24 @@ model transcript_question_answer {
   question      String?
   answer        String?
   transcript    transcript? @relation(fields: [transcript_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  bookmarks     bookmark[]
 }
 
-model BookmarkFolder {
+model bookmarkFolder {
   id        Int       @id @default(autoincrement())
-  name      String    @unique //forcing name to be unique to flesh out duplicate folder save bug
+  name      String    @unique 
   createdAt DateTime  @default(now())
-  bookmarks Bookmark[]
+  bookmarks bookmark[]
 }
 
-model Bookmark {
+model bookmark {
   id          Int       @id @default(autoincrement())
   folderId    Int
   transcriptId Int      
   quoteId      Int     
   createdAt   DateTime   @default(now())
 
-  folder BookmarkFolder @relation(fields: [folderId], references: [id], onDelete: Cascade)
+  folder bookmarkFolder @relation(fields: [folderId], references: [id], onDelete: Cascade)
+  transcript transcript? @relation(fields: [transcriptId], references: [id], onDelete: Cascade)
+  quote      transcript_question_answer @relation(fields: [quoteId], references: [id], onDelete: Cascade)
 }

@@ -1,3 +1,4 @@
+// 
 import { PrismaClient } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -18,7 +19,7 @@ export async function POST(
       );
     }
 
-    // Validate the folder exists
+    // validate the folder exists
     const folderExists = await prisma.bookmarkFolder.findUnique({
       where: { id: parseInt(folderId, 10) },
     });
@@ -30,7 +31,7 @@ export async function POST(
       );
     }
 
-    // Create a new bookmark
+    // create a new bookmark
     const bookmark = await prisma.bookmark.create({
       data: {
         folderId: parseInt(folderId, 10),
