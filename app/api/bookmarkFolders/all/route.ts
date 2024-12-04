@@ -5,16 +5,16 @@ import { NextResponse } from "next/server";
 const prisma = new PrismaClient();
 
 export async function GET() {
-  if (
-    process.env.VERCEL_ENV === "preview" ||
-    process.env.VERCEL_ENV === "production"
-  ) {
-    return NextResponse.json(
-      { message: "This API route is not executable during the build process." },
-      { status: 503 }
-    );
-  }
-  
+  // if (
+  //   process.env.VERCEL_ENV === "preview" ||
+  //   process.env.VERCEL_ENV === "production"
+  // ) {
+  //   return NextResponse.json(
+  //     { message: "This API route is not executable during the build process." },
+  //     { status: 503 }
+  //   );
+  // }
+
   try {
     const folders = await prisma.bookmarkFolder.findMany({
       include: {
