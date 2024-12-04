@@ -2,11 +2,16 @@
 
 **Table of Contents**
 
+- [Deliverable Evaluation](#deliverable-evaluation)
 - [Context](#context)
 - [Objective](#objective)
 - [Deliverables](#deliverables)
 - [Getting Started](#getting-started)
 - [Deploying on Vercel](#deploying-on-vercel)
+
+## Deliverable Evaluation
+
+I thought it was very heavy handed but straight forward. It took me about four hours with the majority of my time being spent figuring out varying configurations and things that were slightly new or different not actually coding. With over an hour devoted to that, and initial set up and planning. Design decisions are best desribed via my prisma schema file.
 
 ## Context:
 
