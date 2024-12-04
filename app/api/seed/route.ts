@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db, sql } from '@vercel/postgres';
 import { faker } from '@faker-js/faker';
-import { Transcript } from '@/utils/types';
+import { Transcript } from '@/app/types/types';
 
 const seedDb = async ({ reset = false }: { reset?: boolean }) => {
   console.log('Creating tables');

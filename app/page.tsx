@@ -6,7 +6,7 @@ import { HStack, VStack, Box } from "@chakra-ui/react";
 import Sidebar from "./components/sidebar";
 import TranscriptContent from "./components/transcriptList";
 import { fetchTranscript } from "@/utils/api";
-import { TranscriptWithQA } from "@/utils/types";
+import { TranscriptWithQA } from "@/app/types/types";
 
 const Home = () => {
   const [transcripts, setTranscripts] = useState<TranscriptWithQA[] | null>(

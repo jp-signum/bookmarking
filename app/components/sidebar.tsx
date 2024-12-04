@@ -1,6 +1,6 @@
 // siebar abstraction for listing transcripts
 import { VStack, Link, Text, Box } from "@chakra-ui/react";
-import { Transcript } from "@/utils/types";
+import { Transcript } from "@/app/types/types";
 
 interface SidebarProps {
   transcripts: { transcript: Transcript }[] | null;

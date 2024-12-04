@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Transcript, TranscriptQA } from "@/utils/types";
+import { Transcript, TranscriptQA } from "@/app/types/types";
 
 interface TranscriptListProps {
   transcript: Transcript;

@@ -17,7 +17,7 @@ import {
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
-import { Folder } from "@/utils/types";
+import { Folder } from "@/app/types/types";
 
 const BookmarksPage = () => {
   const [folders, setFolders] = useState<Folder[]>([]);

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { sql } from '@vercel/postgres';
 
-import { Transcript, TranscriptQA } from '@/utils/types';
+import { Transcript, TranscriptQA } from '@/app/types/types';
 
 // Opt out of caching for all data requests in the route segment
 // See: https://github.com/orgs/vercel/discussions/4696#discussioncomment-7490969
