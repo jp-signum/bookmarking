@@ -37,26 +37,46 @@ const BookmarksPage = () => {
 
   return (
     <Box p={6}>
-      <HStack mb={6}>
+      <HStack mb={6} spacing={4}>
         <Link href="/">
-          <Button colorScheme="teal">Go to Home</Button>
+          <Button colorScheme="teal" size="md" boxShadow="sm">
+            Go to Home
+          </Button>
         </Link>
       </HStack>
-      <Heading size="lg" mb={6} color="teal.600">
+      <Button
+        colorScheme="teal"
+        size="md"
+        boxShadow="sm"
+        onClick={() => {
+          window.open("/api/bookmarkFolders/export", "_blank");
+        }}
+      >
+        Export to CSV
+      </Button>
+      <Heading size="lg" mb={6} color="teal.700" textAlign="center">
         All Bookmarks
       </Heading>
       <Accordion allowMultiple>
         {folders.map((folder) => (
-          <AccordionItem key={folder.id}>
-            <AccordionButton>
+          <AccordionItem key={folder.id} border="none">
+            <AccordionButton
+              _expanded={{ bg: "teal.50", color: "teal.700" }}
+              _hover={{ bg: "teal.100" }}
+              px={4}
+              py={2}
+              borderRadius="md"
+              mb={2}
+              boxShadow="sm"
+            >
               <Box flex="1" textAlign="left">
-                <Heading size="md" color="teal.500">
+                <Heading size="sm" color="teal.600">
                   {folder.name}
                 </Heading>
               </Box>
               <AccordionIcon />
             </AccordionButton>
-            <AccordionPanel pb={4}>
+            <AccordionPanel pb={4} bg="gray.50" borderRadius="md">
               <VStack align="stretch" spacing={4}>
                 {folder.bookmarks.map((bookmark) => (
                   <Box
